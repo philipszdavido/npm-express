@@ -1,0 +1,31 @@
+{
+  "name": "npm-packages",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Chidume Nnamdi <kurtwanger40@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "auth0-js": "^9.0.2",
+    "body-parser": "^1.18.2",
+    "chai": "^4.1.2",
+    "connect-multiparty": "^2.1.0",
+    "cors": "^2.8.4",
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2",
+    "express-jwt": "^5.3.0",
+    "forever": "^0.15.3",
+    "jwks-rsa": "^1.2.1",
+    "jwt-decode": "^2.2.0",
+    "lodash": "^4.17.4",
+    "mocha": "^4.1.0",
+    "mongoose": "^4.13.9",
+    "morgan": "^1.9.0",
+    "passport": "^0.4.0",
+    "response-time": "^2.3.2"
+  }
+}
