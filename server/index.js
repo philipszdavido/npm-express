@@ -6,7 +6,7 @@ var multipart = require('connect-multiparty')
 var jwt = require('express-jwt')
 var morgan = require('morgan')
 var jwks = require('jwks-rsa');
-
+const routes = require('./routes')
 
 var app = express()
 const router = express.Router()

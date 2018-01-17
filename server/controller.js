@@ -1,46 +1,29 @@
-import Student from './../models/student'
-import { Request, Response } from 'express'
-import * as cloudinary from 'cloudinary'
-import * as multipart from 'connect-multiparty'
-
-const multipartWare = multipart()
+const Movie = require('./movie')
 
 export default {
     create(req, res, next) {
-        cloudinary.uploader.upload(req.files.image.path, (result) => {
-            (new Student({... { url: result.url }, ...req.body })).save((err, newStudent) => {
-                const cloud_res = {
-                    url: result.url
-                }
-                const newS = newStudent.toObject()
-                console.log({... { url: result.url }, ...req.body })
-                if (err)
-                    res.send(err)
-                else if (!newStudent)
-                    res.send(400)
-                else
-                    res.send({...newS, ...cloud_res })
-                next()
-            })
-        }, {
-            resource_type: 'image',
-            eager: [
-                { effect: 'sepia' }
-            ]
+        (new Movie({...req.body })).save((err, newMovie) => {
+            if (err)
+                res.send(err)
+            else if (!newMovie)
+                res.send(400)
+            else
+                res.send({...newS, ...cloud_res })
+            next()
         })
     },
     findAll(req, res, next) {
-        Student.find((eerr, data) => {
-            if (eerr) {
-                res.send(eerr)
+        Movie.find((err, data) => {
+            if (err) {
+                res.send(err)
             } else {
                 res.send(data)
             }
             next()
         })
     },
-    deleteStudent(req, res, next) {
-        Student.findByIdAndRemove(req.params.id, (err) => {
+    deleteMovie(req, res, next) {
+        Movie.findByIdAndRemove(req.params.id, (err) => {
             if (err)
                 res.send(err)
             else
@@ -48,25 +31,25 @@ export default {
             next()
         })
     },
-    updateStudent(req, res, next) {
-        Student.findByIdAndUpdate(req.params.id, req.body, (err, updatedStudent) => {
+    updateMovie(req, res, next) {
+        Movie.findByIdAndUpdate(req.params.id, req.body, (err, updatedMovie) => {
             if (err)
                 res.send(err)
-            else if (!updatedStudent)
+            else if (!updatedMovie)
                 res.send(400)
             else
-                res.send(updatedStudent)
+                res.send(updatedMovie)
             next()
         })
     },
-    getStudent(req, res, next) {
-        Student.findById(req.params.id, (err, student) => {
+    getMovie(req, res, next) {
+        Movie.findById(req.params.id, (err, Movie) => {
             if (err)
                 res.send(err)
-            else if (!student)
+            else if (!Movie)
                 res.send(404)
             else
-                res.send(student)
+                res.send(Movie)
             next()
         })
     }

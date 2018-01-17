@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 var Schema = mongoose.Schema
-const url = process.env.MONGODB_URI || "mongodb://localhost:27017/student-info-system"
+const url = process.env.MONGODB_URI || "mongodb://localhost:27017/movies"
 
 const db = mongoose.connect(url, {
     useMongoClient: true

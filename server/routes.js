@@ -1,23 +1,23 @@
-const routes = (router) => {
+const movieController = require('./controller')
+
+export default routes = (router) => {
     router
         .route('/movies')
-        .get(studentsController.findAll)
+        .get(movieController.findAll)
 
     router
-        .route('/students')
-        .post(multipartWare, studentsController.create)
+        .route('/movies')
+        .post(multipartWare, movieController.create)
 
     router
-        .route('/students/:id')
-        .put(studentsController.updateStudent)
+        .route('/movies/:id')
+        .put(movieController.updatemovie)
 
     router
-        .route('/students/:id')
-        .delete(studentsController.deleteStudent)
+        .route('/movies/:id')
+        .delete(movieController.deletemovie)
 
     router
-        .route('/students/:id')
-        .get(studentsController.getStudent)
+        .route('/movies/:id')
+        .get(movieController.getmovie)
 }
-
-export default routes
