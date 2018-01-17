@@ -2,9 +2,10 @@
   "name": "npm-packages",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --reporter spec",
+    "cover": "istanbul cover node_modules/mocha/bin/_mocha test/*.js -- -R spec"
   },
   "keywords": [],
   "author": "Chidume Nnamdi <kurtwanger40@gmail.com>",
@@ -13,12 +14,15 @@
     "auth0-js": "^9.0.2",
     "body-parser": "^1.18.2",
     "chai": "^4.1.2",
+    "compression": "^1.7.1",
     "connect-multiparty": "^2.1.0",
     "cors": "^2.8.4",
+    "coveralls": "^3.0.0",
     "dotenv": "^4.0.0",
     "express": "^4.16.2",
     "express-jwt": "^5.3.0",
     "forever": "^0.15.3",
+    "istanbul": "^0.4.5",
     "jwks-rsa": "^1.2.1",
     "jwt-decode": "^2.2.0",
     "lodash": "^4.17.4",
