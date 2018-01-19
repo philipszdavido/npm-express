@@ -1,14 +1,14 @@
 const Movie = require('./movie')
 
-export default {
+module.exports = {
     create(req, res, next) {
-        (new Movie({...req.body })).save((err, newMovie) => {
+        (new Movie(req.body)).save((err, newMovie) => {
             if (err)
                 res.send(err)
             else if (!newMovie)
                 res.send(400)
             else
-                res.send({...newS, ...cloud_res })
+                res.send(newMovie)
             next()
         })
     },
@@ -27,7 +27,7 @@ export default {
             if (err)
                 res.send(err)
             else
-                res.send(204)
+                res.sendStatus(204)
             next()
         })
     },
@@ -38,7 +38,7 @@ export default {
             else if (!updatedMovie)
                 res.send(400)
             else
-                res.send(updatedMovie)
+                res.send(req.body)
             next()
         })
     },

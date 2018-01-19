@@ -1,22 +1,27 @@
 var express = require('express')
 var cors = require('cors')
-var dotenv = require('dotenv').config()
+require('dotenv').config()
 var bodyParser = require('body-parser')
 var multipart = require('connect-multiparty')
 var jwt = require('express-jwt')
 var morgan = require('morgan')
 var jwks = require('jwks-rsa');
+var compression = require('compression')
+var helmet = require('helmet')
 const routes = require('./routes')
 
 var app = express()
 const router = express.Router()
-const multipartWare = multipart()
 
 /* Configure Middlewares */
+app.use(helmet())
+if (process.env.NODE_ENV != 'test')
+    app.use(morgan('common'))
 app.use(cors())
 app.use(bodyParser.json())
+app.use(compression())
 
-var jwtCheck = jwt({
+/*var jwtCheck = jwt({
     secret: jwks.expressJwtSecret({
         cache: true,
         rateLimit: true,
@@ -38,7 +43,7 @@ app.use(function(err, req, res, next) {
         res.status(401).send(err);
     }
 });
-
+*/
 app.use((err, request, response, next) => {
 
     response.status(err.status || 500);
@@ -54,3 +59,4 @@ let port = process.env.PORT || 3003
 app.listen(port, () => {
     console.log(`Server listening on port:${port}`)
 })
+module.exports = app

@@ -1,6 +1,9 @@
 const movieController = require('./controller')
+var multipart = require('connect-multiparty')
 
-export default routes = (router) => {
+const multipartWare = multipart()
+
+module.exports = (router) => {
     router
         .route('/movies')
         .get(movieController.findAll)
@@ -11,13 +14,13 @@ export default routes = (router) => {
 
     router
         .route('/movies/:id')
-        .put(movieController.updatemovie)
+        .put(movieController.updateMovie)
 
     router
         .route('/movies/:id')
-        .delete(movieController.deletemovie)
+        .delete(movieController.deleteMovie)
 
     router
         .route('/movies/:id')
-        .get(movieController.getmovie)
+        .get(movieController.getMovie)
 }

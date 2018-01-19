@@ -13,4 +13,4 @@ var MovieSchema = new Schema({
     rating: String,
     image: String
 })
-export default mongoose.model('Movie', MovieSchema)
+module.exports = mongoose.model('Movie', MovieSchema)
