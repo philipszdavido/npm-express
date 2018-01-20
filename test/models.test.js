@@ -15,11 +15,13 @@ chai.use(chaiHttp);
 
 //Our parent block
 describe('Movies', () => {
-    beforeEach((done) => { //Before each test we empty the database
+    beforeEach((done) => {
+        //Before each test we empty the database
         Movie.remove({}, (err) => {
             done();
         });
     });
+
     /*
      * Test the /GET route
      */
@@ -35,29 +37,11 @@ describe('Movies', () => {
                 });
         });
     });
+
     /*
      * Test the /POST route
      */
     describe('/POST /api/movies', () => {
-        /*it('it should not POST a movie without pages field', (done) => {
-            let movie = {
-                name: "The Lord of the Rings",
-                description: "J.R.R. Tolkien",
-                rating: '1.9',
-                image: 'movieimage.jpg'
-            }
-            chai.request(server)
-                .post('/api/movies')
-                .send(movie)
-                .end((err, res) => {
-                    res.should.have.status(200);
-                    res.body.should.be.a('object');
-                    res.body.should.have.property('errors');
-                    res.body.errors.should.have.property('pages');
-                    res.body.errors.pages.should.have.property('kind').eql('required');
-                    done();
-                });
-        });*/
         it('it should POST a movie ', (done) => {
             let movie = {
                 name: "Guardians of the Galaxy: Vol II",
@@ -69,18 +53,15 @@ describe('Movies', () => {
                 .post('/api/movies')
                 .send(movie)
                 .end((err, res) => {
-                    //console.log(res.body.movie)
                     res.should.have.status(200);
                     res.body.should.be.a('object');
-                    //res.body.should.have.property('message').eql('Book successfully added!');
                     res.body.should.have.property('name');
                     res.body.should.have.property('description');
-                    //res.body.movie.should.have.property('rating');
-                    //res.body.movie.should.have.property('image');
                     done();
                 });
         });
     });
+
     /*
      * Test the /GET/:id route
      */
@@ -105,6 +86,7 @@ describe('Movies', () => {
 
         });
     });
+
     /*
      * Test the /PUT/:id route
      */
@@ -118,13 +100,13 @@ describe('Movies', () => {
                     .end((err, res) => {
                         res.should.have.status(200);
                         res.body.should.be.a('object');
-                        //res.body.should.have.property('message').eql('Book updated!');
                         res.body.should.have.property('rating').eql("1950");
                         done();
                     });
             });
         });
     });
+
     /*
      * Test the /DELETE/:id route
      */
@@ -137,9 +119,6 @@ describe('Movies', () => {
                     .end((err, res) => {
                         res.should.have.status(204);
                         res.body.should.be.a('object');
-                        //res.body.should.have.property('message').eql('Book successfully deleted!');
-                        //res.body.result.should.have.property('ok').eql(1);
-                        //res.body.result.should.have.property('n').eql(1);
                         done();
                     });
             });

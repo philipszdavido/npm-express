@@ -21,36 +21,37 @@ app.use(cors())
 app.use(bodyParser.json())
 app.use(compression())
 
-/*var jwtCheck = jwt({
-    secret: jwks.expressJwtSecret({
-        cache: true,
-        rateLimit: true,
-        jwksRequestsPerMinute: 5,
-        jwksUri: "https://{YOUR-AUTH0-URL-HERE}.auth0.com/.well-known/jwks.json"
-    }),
-    audience: '{YOUR-API-AUDIENCE-GOES-HERE}',
-    issuer: "{YOUR-AUTH0-ISSUER-HERE}",
-    algorithms: ['RS256']
-});
+if (process.env.NODE_ENV != 'test') {
+    var jwtCheck = jwt({
+        secret: jwks.expressJwtSecret({
+            cache: true,
+            rateLimit: true,
+            jwksRequestsPerMinute: 5,
+            jwksUri: "https://chidumennamdi.auth0.com/.well-known/jwks.json"
+        }),
+        audience: 'https://spotify-app.com',
+        issuer: "https://chidumennamdi.auth0.com/",
+        algorithms: ['RS256']
+    });
 
-app.use(jwtCheck);
+    app.use(jwtCheck);
 
-// catch error
-app.use(function(err, req, res, next) {
-    if (err.name === 'UnauthorizedError') {
-        res.status(401).send('Invalid token, or no token supplied!');
-    } else {
-        res.status(401).send(err);
-    }
-});
-*/
-app.use((err, request, response, next) => {
+    // catch error
+    app.use(function(err, req, res, next) {
+        if (err.name === 'UnauthorizedError') {
+            res.status(401).send('Invalid token, or no token supplied!');
+        } else {
+            res.status(401).send(err);
+        }
+    });
 
-    response.status(err.status || 500);
-    response.json({
-        error: "Server error"
-    })
-});
+    app.use((err, request, response, next) => {
+        response.status(err.status || 500);
+        response.json({
+            error: "Server error"
+        })
+    });
+}
 
 routes(router)
 app.use('/api', router)
