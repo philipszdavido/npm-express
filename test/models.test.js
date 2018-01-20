@@ -4,7 +4,7 @@ process.env.NODE_ENV = 'test';
 let mongoose = require("mongoose");
 let Movie = require('./../server/movie');
 
-//Require the dependencies
+/* Require the dependencies */
 let chai = require('chai');
 let chaiHttp = require('chai-http');
 let server = require('./../server/index');
