@@ -10,22 +10,30 @@ s/n | npm package
 --- | -----------
 1 | body-parser
 2 | chai
-3 | chai-http
-4 | compression
-5 | connect-multiparty
-6 | cors
-7 | coveralls
-8 | dotenv
-9 | express
-10 | express-jwt
-11 | helmet
-12 | istanbul
-13 | jwks-rsa
-14 | mocha
-15 | mongoose
-16 | morgan
+3 | compression
+4 | connect-multiparty
+5 | cors
+6 | coveralls
+7 | dotenv
+8 | express
+9 | express-jwt
+10 | helmet
+11 | istanbul
+12 | jwks-rsa
+13 | mocha
+14 | mongoose
+15 | morgan
 
-To demonstrate how the npm packages are used in an Express + Node.js app, I implemented a Movies API below is the API Summary.
+To demonstrate how the npm packages are used in an Express + Node.js app, I implemented a Movies API below is the Movies API Object Model and the API Summary.
+
+## Movies API Object Model
+
+```json
+  "name": "",
+  "description": "",
+  "rating": "",
+  "image": ""
+```
 
 ## API Summary
 
@@ -45,11 +53,11 @@ DELETE /movies/`<id>` | Delete movie.
 
 1.  Clone the [**repository here**](https://github.com/philipszdavido/npm-packages.git):
 
-      git clone https://github.com/philipszdavido/npm-packages.git
+        git clone https://github.com/philipszdavido/npm-packages.git
 
 1.  Move into the folder form your terminal:
 
-      cd npm-packages
+        cd npm-packages
 
 1.  Run `npm install` to install node dependencies.
 1.  Run `node .` or `npm run start` to start the server.
