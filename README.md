@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/philipszdavido/npm-packages.svg?branch=master)](https://travis-ci.org/philipszdavido/npm-packages)
+[![Coverage Status](https://coveralls.io/repos/github/philipszdavido/npm-packages/badge.svg?branch=master)](https://coveralls.io/github/philipszdavido/npm-packages?branch=master)
+
 # npm-packages
 
 This repo demontrates 15 usefuls npm packages to use in `Node.js` + `Express` app
@@ -43,9 +46,13 @@ DELETE /movies/`<id>` | Delete movie.
 ### Installation
 
 * Clone the [**repository here**](https://github.com/philipszdavido/npm-packages.git):
+
     git clone https://github.com/philipszdavido/npm-packages.git
+
 * Move into the folder form your terminal:
+
     cd npm-packages
+
 * Run `npm install` to install node dependencies.
 * Run `node .` or `npm run start` to start the server.
 
