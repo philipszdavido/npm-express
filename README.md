@@ -6,23 +6,23 @@
 This repo demontrates 15 usefuls npm packages to use in `Node.js` + `Express` app
 
 ### npm packages used
-s/n | npm package
---- | -----------
-1 | body-parser
-2 | chai
-3 | compression
-4 | connect-multiparty
-5 | cors
-6 | coveralls
-7 | dotenv
-8 | express
-9 | express-jwt
-10 | helmet
-11 | istanbul
-12 | jwks-rsa
-13 | mocha
-14 | mongoose
-15 | morgan
+s/n | npm package | Description
+--- | ----------- | -----------
+1 | [body-parser](https://www.npmjs.com/package/body-parser) | This module lets you authenticate HTTP requests using JWT tokens in your Node.js applications.
+2 | [chai](https://www.npmjs.com/package/chai) | BDD/TDD assertion library for node.js and the browser. Test framework agnostic.
+3 | [compression](https://www.npmjs.com/package/compression) |
+4 | [connect-multiparty](https://www.npmjs.com/package/connect-multiparty) |
+5 | [cors](https://www.npmjs.com/package/cors) |
+6 | [coveralls](https://www.npmjs.com/package/coveralls) |
+7 | [dotenv](https://www.npmjs.com/package/dotenv) |
+8 | [express](https://www.npmjs.com/package/express) |
+9 | [express-jwt](https://www.npmjs.com/package/express-jwt) |
+10 | [helmet](https://www.npmjs.com/package/helmet) |
+11 | [istanbul](https://www.npmjs.com/package/istanbul) |
+12 | [jwks-rsa](https://www.npmjs.com/package/jwks-rsa) |
+13 | [mocha](https://www.npmjs.com/package/mocha) |
+14 | [mongoose](https://www.npmjs.com/package/mongoose) |
+15 | [morgan](https://www.npmjs.com/package/morgan) |
 
 To demonstrate how the npm packages are used in an Express + Node.js app, I implemented a Movies API below is the Movies API Object Model and the API Summary.
 
