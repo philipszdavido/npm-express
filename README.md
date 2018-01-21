@@ -137,9 +137,21 @@ Run `npm test` on your terminal. Remember to  run test on the project root direc
 ### Contributing
 1. Create an issue. First look through [the open issues](https://github.com/philipszdavido/npm-packages/issues).
 1. Clone the repository or fork it.
-1. Create your feature branch: `git checkout -b my-new-feature`
-1. Commit your changes: `git commit -m 'Add some feature'`
-1. Push to the branch: `git push origin your-new-feature`
+
+      git clone https://github.com/philipszdavido/npm-packages
+
+1. Create your feature branch:
+
+      git checkout -b <new-feature>
+
+1. Commit your changes:
+
+      git commit -m 'Add some feature'
+
+1. Push to the branch:
+
+      git push origin <new-feature>
+
 1. Submit a pull request.
 
 ###  Links
