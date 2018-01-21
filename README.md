@@ -29,9 +29,7 @@ To demonstrate how the npm packages are used in an Express + Node.js app, I impl
 
 ## API Summary
 
-#### Note
-
-All requests must be prefixed with  **<YOUR_URL_HERE>/api/**
+**Note**: All requests must be prefixed with  **<YOUR_URL_HERE>/api/**
 
 ## Movie
 
@@ -45,16 +43,16 @@ DELETE /movies/`<id>` | Delete movie.
 
 ### Installation
 
-* Clone the [**repository here**](https://github.com/philipszdavido/npm-packages.git):
+1.  Clone the [**repository here**](https://github.com/philipszdavido/npm-packages.git):
 
-    git clone https://github.com/philipszdavido/npm-packages.git
+      git clone https://github.com/philipszdavido/npm-packages.git
 
-* Move into the folder form your terminal:
+1.  Move into the folder form your terminal:
 
-    cd npm-packages
+      cd npm-packages
 
-* Run `npm install` to install node dependencies.
-* Run `node .` or `npm run start` to start the server.
+1.  Run `npm install` to install node dependencies.
+1.  Run `node .` or `npm run start` to start the server.
 
 ## Usage
 
@@ -130,11 +128,11 @@ Run `npm test` on your terminal. Remember to  run test on the project root direc
 
 ### Contributing
 1. Create an issue. First look through [the open issues](https://github.com/philipszdavido/npm-packages/issues).
-2. Clone the repository or fork it.
-3. Create your feature branch: `git checkout -b my-new-feature`
-5. Commit your changes: `git commit -m 'Add some feature'`
-4. Push to the branch: `git push origin your-new-feature`
-5. Submit a pull request.
+1. Clone the repository or fork it.
+1. Create your feature branch: `git checkout -b my-new-feature`
+1. Commit your changes: `git commit -m 'Add some feature'`
+1. Push to the branch: `git push origin your-new-feature`
+1. Submit a pull request.
 
 ###  Links
 * Follow me on [twitter](https://twitter.com/ngArchangel).
