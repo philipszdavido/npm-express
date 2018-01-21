@@ -10,19 +10,19 @@ s/n | npm package | Description
 --- | ----------- | -----------
 1 | [body-parser](https://www.npmjs.com/package/body-parser) | This module lets you authenticate HTTP requests using JWT tokens in your Node.js applications.
 2 | [chai](https://www.npmjs.com/package/chai) | BDD/TDD assertion library for node.js and the browser. Test framework agnostic.
-3 | [compression](https://www.npmjs.com/package/compression) |
-4 | [connect-multiparty](https://www.npmjs.com/package/connect-multiparty) |
-5 | [cors](https://www.npmjs.com/package/cors) |
-6 | [coveralls](https://www.npmjs.com/package/coveralls) |
-7 | [dotenv](https://www.npmjs.com/package/dotenv) |
-8 | [express](https://www.npmjs.com/package/express) |
-9 | [express-jwt](https://www.npmjs.com/package/express-jwt) |
-10 | [helmet](https://www.npmjs.com/package/helmet) |
-11 | [istanbul](https://www.npmjs.com/package/istanbul) |
-12 | [jwks-rsa](https://www.npmjs.com/package/jwks-rsa) |
-13 | [mocha](https://www.npmjs.com/package/mocha) |
-14 | [mongoose](https://www.npmjs.com/package/mongoose) |
-15 | [morgan](https://www.npmjs.com/package/morgan) |
+3 | [compression](https://www.npmjs.com/package/compression) | Node.js compression middleware.
+4 | [connect-multiparty](https://www.npmjs.com/package/connect-multiparty) | A node.js module for parsing multipart-form data requests
+5 | [cors](https://www.npmjs.com/package/cors) | CORS is a node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options.
+6 | [coveralls](https://www.npmjs.com/package/coveralls) | Coveralls.io support for node.js. Get the great coverage reporting of coveralls.io and add a cool coverage button ( like the one above ) to your README.
+7 | [dotenv](https://www.npmjs.com/package/dotenv) | Loads environment variables from .env file
+8 | [express](https://www.npmjs.com/package/express) | Fast, unopinionated, minimalist web framework for node.
+9 | [express-jwt](https://www.npmjs.com/package/express-jwt) | JWT authentication middleware.
+10 | [helmet](https://www.npmjs.com/package/helmet) | help secure Express/Connect apps with various HTTP headers
+11 | [istanbul](https://www.npmjs.com/package/istanbul) | a JS code coverage tool written in JS
+12 | [jwks-rsa](https://www.npmjs.com/package/jwks-rsa) | Library to retrieve RSA public keys from a JWKS endpoint
+13 | [mocha](https://www.npmjs.com/package/mocha) | simple, flexible, fun test framework
+14 | [mongoose](https://www.npmjs.com/package/mongoose) | Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment.
+15 | [morgan](https://www.npmjs.com/package/morgan) | HTTP request logger middleware for node.js
 
 To demonstrate how the npm packages are used in an Express + Node.js app, I implemented a Movies API below is the Movies API Object Model and the API Summary.
 
