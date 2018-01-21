@@ -57,7 +57,8 @@ routes(router)
 app.use('/api', router)
 let port = process.env.PORT || 3003
 
-app.listen(port, () => {
+let server = app.listen(port, () => {
     console.log(`Server listening on port:${port}`)
 })
+
 module.exports = app

@@ -10,8 +10,8 @@ let chaiHttp = require('chai-http');
 let server = require('./../server/index');
 let should = chai.should();
 
-
 chai.use(chaiHttp);
+const request = chai.request(server);
 
 //Our parent block
 describe('Movies', () => {
@@ -21,13 +21,13 @@ describe('Movies', () => {
             done();
         });
     });
-
+    after(done => done());
     /*
      * Test the /GET route
      */
     describe('/GET /api/movies', () => {
         it('it should GET all the movies', (done) => {
-            chai.request(server)
+            request
                 .get('/api/movies')
                 .end((err, res) => {
                     res.should.have.status(200);
@@ -49,7 +49,7 @@ describe('Movies', () => {
                 rating: "9.0",
                 image: "guardiansofthegalaxy.jpg"
             }
-            chai.request(server)
+            request
                 .post('/api/movies')
                 .send(movie)
                 .end((err, res) => {
@@ -69,7 +69,7 @@ describe('Movies', () => {
         it('it should GET a movie by the given id', (done) => {
             let movie = new Movie({ name: "Geek Charming", description: "romantic movie", rating: "6.0", image: "geekcharming.jpg" });
             movie.save((err, movie) => {
-                chai.request(server)
+                request
                     .get('/api/movies/' + movie.id)
                     .send(movie)
                     .end((err, res) => {
@@ -94,7 +94,7 @@ describe('Movies', () => {
         it('it should UPDATE a movie given the id', (done) => {
             let movie = new Movie({ name: "The Chronicles of Narnia", description: "C.S. Lewis", rating: "1948", image: "778" })
             movie.save((err, movie) => {
-                chai.request(server)
+                request
                     .put('/api/movies/' + movie.id)
                     .send({ name: "The Chronicles of Narnia", description: "C.S. Lewis", rating: "1950", image: "778" })
                     .end((err, res) => {
@@ -114,7 +114,7 @@ describe('Movies', () => {
         it('it should DELETE a movies given the id', (done) => {
             let movie = new Movie({ name: "The Chronicles of Narnia", description: "C.S. Lewis", rating: "1948", image: "778" })
             movie.save((err, movie) => {
-                chai.request(server)
+                request
                     .delete('/api/movies/' + movie.id)
                     .end((err, res) => {
                         res.should.have.status(204);

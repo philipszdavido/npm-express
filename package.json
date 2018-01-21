@@ -4,8 +4,8 @@
     "description": "",
     "main": "server/index.js",
     "scripts": {
-        "test": "mocha --reporter spec --timeout 10000",
-        "cover": "istanbul cover node_modules/mocha/bin/_mocha test/*.js -- -R spec"
+        "test": "mocha --exit",
+        "cover": "istanbul cover node_modules/mocha/bin/_mocha test/*.js -- --exit"
     },
     "keywords": [],
     "author": "Chidume Nnamdi <kurtwanger40@gmail.com>",
