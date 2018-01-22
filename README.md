@@ -59,6 +59,15 @@ DELETE /movies/`<id>` | Delete movie.
 
         cd npm-packages
 
+1.  Create `.env` file in the root directory:
+
+        touch .env
+
+1.  Copy `.env.template` to `.env`:
+
+        cp .env.template .env
+
+1.  Edit the `.env` key-value pairs to your own configuration.
 1.  Run `npm install` to install node dependencies.
 1.  Run `node .` or `npm run start` to start the server.
 
