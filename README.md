@@ -59,10 +59,6 @@ DELETE /movies/`<id>` | Delete movie.
 
         cd npm-packages
 
-1.  Create `.env` file in the root directory:
-
-        touch .env
-
 1.  Copy `.env.template` to `.env`:
 
         cp .env.template .env
