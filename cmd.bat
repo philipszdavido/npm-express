@@ -42,6 +42,12 @@ JWT=$(curl --request POST \
   --header 'content-type: application/json' \
   --data '{"client_id":"'$CLIENT_ID'","client_secret":"'$CLIENT_SECRET'","audience":"'$AUDIENCE_ATTRIBUTE'","grant_type":"client_credentials"}' | jq .access_token -r);
 
+curl --request POST \
+  --url http://localhost:3003/api/movies \
+  --header 'authorization: Bearer '$JWT \
+  --header 'content-type: application/json' \
+  --data '{"name":"Arrow","description":"bad movie","rating":"7.0","image":"michaeljackson.png"}'
+
 curl --request GET \
   --url http://localhost:3003/api/movies \
   --header 'authorization: Bearer '$JWT
