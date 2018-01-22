@@ -25,7 +25,6 @@
         "istanbul": "^0.4.5",
         "jwks-rsa": "^1.2.1",
         "mocha": "^4.1.0",
-        "mockgoose": "^7.3.3",
         "mongoose": "^4.13.9",
         "morgan": "^1.9.0"
     }
