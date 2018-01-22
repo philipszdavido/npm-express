@@ -11,7 +11,6 @@
     "author": "Chidume Nnamdi <kurtwanger40@gmail.com>",
     "license": "ISC",
     "dependencies": {
-        "auth0-js": "^9.0.2",
         "body-parser": "^1.18.2",
         "chai": "^4.1.2",
         "chai-http": "^3.0.0",
@@ -22,19 +21,12 @@
         "dotenv": "^4.0.0",
         "express": "^4.16.2",
         "express-jwt": "^5.3.0",
-        "express-rate-limit": "^2.11.0",
-        "express-status-monitor": "^1.0.1",
-        "forever": "^0.15.3",
         "helmet": "^3.9.0",
         "istanbul": "^0.4.5",
         "jwks-rsa": "^1.2.1",
-        "jwt-decode": "^2.2.0",
-        "lodash": "^4.17.4",
         "mocha": "^4.1.0",
         "mockgoose": "^7.3.3",
         "mongoose": "^4.13.9",
-        "morgan": "^1.9.0",
-        "passport": "^0.4.0",
-        "response-time": "^2.3.2"
+        "morgan": "^1.9.0"
     }
 }
