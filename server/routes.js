@@ -1,5 +1,5 @@
 const movieController = require('./controller')
-var multipart = require('connect-multiparty')
+const multipart = require('connect-multiparty')
 
 const multipartWare = multipart()
 

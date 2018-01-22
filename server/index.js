@@ -1,16 +1,16 @@
-var express = require('express')
-var cors = require('cors')
+const express = require('express')
+const cors = require('cors')
 require('dotenv').config()
-var bodyParser = require('body-parser')
-var multipart = require('connect-multiparty')
-var jwt = require('express-jwt')
-var morgan = require('morgan')
-var jwks = require('jwks-rsa');
-var compression = require('compression')
-var helmet = require('helmet')
+const bodyParser = require('body-parser')
+const multipart = require('connect-multiparty')
+const jwt = require('express-jwt')
+const morgan = require('morgan')
+const jwks = require('jwks-rsa');
+const compression = require('compression')
+const helmet = require('helmet')
 const routes = require('./routes')
 
-var app = express()
+const app = express()
 const router = express.Router()
 
 /* Configure Middlewares */
@@ -27,10 +27,10 @@ if (process.env.NODE_ENV != 'test') {
             cache: true,
             rateLimit: true,
             jwksRequestsPerMinute: 5,
-            jwksUri: "https://chidumennamdi.auth0.com/.well-known/jwks.json"
+            jwksUri: process.env.AUTH0_URL
         }),
-        audience: 'https://spotify-app.com',
-        issuer: "https://chidumennamdi.auth0.com/",
+        audience: process.env.AUTH0_AUDIENCE,
+        issuer: process.env.AUTH0_ISSUER,
         algorithms: ['RS256']
     });
 
@@ -57,7 +57,7 @@ routes(router)
 app.use('/api', router)
 let port = process.env.PORT || 3003
 
-let server = app.listen(port, () => {
+const server = app.listen(port, () => {
     console.log(`Server listening on port:${port}`)
 })
 

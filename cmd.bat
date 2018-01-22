@@ -31,3 +31,17 @@ curl --request POST \
 curl --request GET \
   --url http://localhost:3003/api/movies \
   --header 'authorization: Bearer '$JWT
+
+CLIENT_ID="J5Hl7A821oFs5LO8xFWTSAAdrJBYhr5Y";
+CLIENT_SECRET="IZ9cpso_kmcdzyHckckAW3l1twUA3bjb32dJEt8qAWM6JsvML7EJoRmLc2DN9jEw";
+AUDIENCE_ATTRIBUTE="https://spotify-app.com"
+AUTH0_DOMAIN="chidumennamdi"
+
+JWT=$(curl --request POST \
+  --url https://$AUTH0_DOMAIN.auth0.com/oauth/token \
+  --header 'content-type: application/json' \
+  --data '{"client_id":"'$CLIENT_ID'","client_secret":"'$CLIENT_SECRET'","audience":"'$AUDIENCE_ATTRIBUTE'","grant_type":"client_credentials"}' | jq .access_token -r);
+
+curl --request GET \
+  --url http://localhost:3003/api/movies \
+  --header 'authorization: Bearer '$JWT

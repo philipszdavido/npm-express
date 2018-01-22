@@ -3,28 +3,28 @@
 
 # npm-packages
 
-This repo demontrates 15 usefuls npm packages to use in `Node.js` + `Express` app
+This repo demontrates 15 usefuls NPM packages to use in `Node.js` + `Express` app.
 
-### npm packages used
-s/n | npm package | Description
+### NPM packages used
+s/n | NPM package | Description
 --- | ----------- | -----------
 1 | [body-parser](https://www.npmjs.com/package/body-parser) | This module lets you authenticate HTTP requests using JWT tokens in your Node.js applications.
-2 | [chai](https://www.npmjs.com/package/chai) | BDD/TDD assertion library for node.js and the browser. Test framework agnostic.
+2 | [chai](https://www.npmjs.com/package/chai) | BDD/TDD assertion library for Node.js and the browser. Test framework agnostic.
 3 | [compression](https://www.npmjs.com/package/compression) | Node.js compression middleware.
-4 | [connect-multiparty](https://www.npmjs.com/package/connect-multiparty) | A node.js module for parsing multipart-form data requests
+4 | [connect-multiparty](https://www.npmjs.com/package/connect-multiparty) | A Node.js module for parsing multipart-form data requests
 5 | [cors](https://www.npmjs.com/package/cors) | CORS is a node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options.
-6 | [coveralls](https://www.npmjs.com/package/coveralls) | Coveralls.io support for node.js. Get the great coverage reporting of coveralls.io and add a cool coverage button ( like the one above ) to your README.
+6 | [coveralls](https://www.npmjs.com/package/coveralls) | Coveralls.io support for Node.js. Get the great coverage reporting of coveralls.io and add a cool coverage button ( like the one above ) to your README.
 7 | [dotenv](https://www.npmjs.com/package/dotenv) | Loads environment variables from .env file
-8 | [express](https://www.npmjs.com/package/express) | Fast, unopinionated, minimalist web framework for node.
+8 | [express](https://www.npmjs.com/package/express) | Fast, unopinionated, minimalist web framework for Node.js.
 9 | [express-jwt](https://www.npmjs.com/package/express-jwt) | JWT authentication middleware.
 10 | [helmet](https://www.npmjs.com/package/helmet) | help secure Express/Connect apps with various HTTP headers
-11 | [istanbul](https://www.npmjs.com/package/istanbul) | a JS code coverage tool written in JS
+11 | [istanbul](https://www.npmjs.com/package/istanbul) | a JS code coverage tool written in JavaScript
 12 | [jwks-rsa](https://www.npmjs.com/package/jwks-rsa) | Library to retrieve RSA public keys from a JWKS endpoint
 13 | [mocha](https://www.npmjs.com/package/mocha) | simple, flexible, fun test framework
 14 | [mongoose](https://www.npmjs.com/package/mongoose) | Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment.
-15 | [morgan](https://www.npmjs.com/package/morgan) | HTTP request logger middleware for node.js
+15 | [morgan](https://www.npmjs.com/package/morgan) | HTTP request logger middleware for Node.js
 
-To demonstrate how the npm packages are used in an Express + Node.js app, I implemented a Movies API below is the Movies API Object Model and the API Summary.
+To demonstrate how the NPM packages are used in an Express + Node.js app, I implemented a Movies API, below is the Movies API Object Model and the API Summary.
 
 ## Movies API Object Model
 
@@ -64,31 +64,26 @@ DELETE /movies/`<id>` | Delete movie.
 
 ## Usage
 
-**Note**: Replace your Auth0 authentication credentials here.
+**Note**: Replace your Auth0 authentication credentials in the `.env` file.
 
-```javascript
-/* index.js */
-var jwtCheck = jwt({
-    secret: jwks.expressJwtSecret({
-        cache: true,
-        rateLimit: true,
-        jwksRequestsPerMinute: 5,
-        jwksUri: "https://{YOUR-AUTH0-URL-HERE}.auth0.com/.well-known/jwks.json"
-    }),
-    audience: '{YOUR-API-AUDIENCE-GOES-HERE}',
-    issuer: "{YOUR-AUTH0-ISSUER-HERE}",
-    algorithms: ['RS256']
-});
+```env
+...
+AUTH0_ISSUER = <YOUR_AUTH0_ISSUER_HERE>
+AUTH0_URL = <YOUR_AUTH0_URL_HERE>
+API_AUDIENCE = <YOUR_API_AUDIENCE_HERE>
 ```
+
 ### Movies POST Test - This creates a new movie
 ```sh
 CLIENT_ID="<YOUR-CLIENT-ID-HERE>";
-CLIENT_SECRET="YOUR-CLIENT-SECRET-HERE";
+CLIENT_SECRET="<YOUR-CLIENT-SECRET-HERE>";
+AUDIENCE_ATTRIBUTE="<YOUR-AUDIENCE-ATTRIBUTE-HERE>"
+AUTH0_DOMAIN="<YOUR-AUTH0-DOMAIN>"
 
 JWT=$(curl --request POST \
-  --url https://<YOUR-AUTH0-DOMAIN>.auth0.com/oauth/token \
+  --url https://$AUTH0_DOMAIN.auth0.com/oauth/token \
   --header 'content-type: application/json' \
-  --data '{"client_id":"'$CLIENT_ID'","client_secret":"'$CLIENT_SECRET'","audience":"<YOUR-AUDIENCE-ATTRIBUTE-HERE>","grant_type":"client_credentials"}' | jq .access_token -r);
+  --data '{"client_id":"'$CLIENT_ID'","client_secret":"'$CLIENT_SECRET'","audience":"'$AUDIENCE_ATTRIBUTE'","grant_type":"client_credentials"}' | jq .access_token -r);
 
 curl --request POST \
   --url http://localhost:3003/api/movies \
@@ -100,12 +95,14 @@ curl --request POST \
 ### Movies GET Test - This retrieves all movies from the database
 ```sh
 CLIENT_ID="<YOUR-CLIENT-ID-HERE>";
-CLIENT_SECRET="YOUR-CLIENT-SECRET-HERE";
+CLIENT_SECRET="<YOUR-CLIENT-SECRET-HERE>";
+AUDIENCE_ATTRIBUTE="<YOUR-AUDIENCE-ATTRIBUTE-HERE>"
+AUTH0_DOMAIN="<YOUR-AUTH0-DOMAIN>"
 
 JWT=$(curl --request POST \
-  --url https://<YOUR-AUTH0-DOMAIN>.auth0.com/oauth/token \
+  --url https://$AUTH0_DOMAIN.auth0.com/oauth/token \
   --header 'content-type: application/json' \
-  --data '{"client_id":"'$CLIENT_ID'","client_secret":"'$CLIENT_SECRET'","audience":"<YOUR-AUDIENCE-ATTRIBUTE-HERE>","grant_type":"client_credentials"}' | jq .access_token -r);
+  --data '{"client_id":"'$CLIENT_ID'","client_secret":"'$CLIENT_SECRET'","audience":"'$AUDIENCE_ATTRIBUTE'","grant_type":"client_credentials"}' | jq .access_token -r);
 
 curl --request GET \
   --url http://localhost:3003/api/movies \
@@ -115,12 +112,14 @@ curl --request GET \
 ### Movies GET `<id>` Test - This retrieves a specific movie id from the database 
 ```sh
 CLIENT_ID="<YOUR-CLIENT-ID-HERE>";
-CLIENT_SECRET="YOUR-CLIENT-SECRET-HERE";
+CLIENT_SECRET="<YOUR-CLIENT-SECRET-HERE>";
+AUDIENCE_ATTRIBUTE="<YOUR-AUDIENCE-ATTRIBUTE-HERE>"
+AUTH0_DOMAIN="<YOUR-AUTH0-DOMAIN>"
 
 JWT=$(curl --request POST \
-  --url https://<YOUR-AUTH0-DOMAIN>.auth0.com/oauth/token \
+  --url https://$AUTH0_DOMAIN.auth0.com/oauth/token \
   --header 'content-type: application/json' \
-  --data '{"client_id":"'$CLIENT_ID'","client_secret":"'$CLIENT_SECRET'","audience":"<YOUR-AUDIENCE-ATTRIBUTE-HERE>","grant_type":"client_credentials"}' | jq .access_token -r);
+  --data '{"client_id":"'$CLIENT_ID'","client_secret":"'$CLIENT_SECRET'","audience":"'$AUDIENCE_ATTRIBUTE'","grant_type":"client_credentials"}' | jq .access_token -r);
 
 curl --request GET \
   --url http://localhost:3003/api/movies/<MOVIE_ID_HERE> \
